@@ -87,18 +87,18 @@ app.get("/home", (req, res) => {
 });
 
 //pagina cadastro pets
-app.get("/cadastroPet", (req, res) => {
-  res.redirect("/cadastroPet.html");
+app.get("/cadastro-pet", (req, res) => {
+  res.redirect("/cadastro-pet.html");
 });
 
 //pagina adocao de pet
-app.get("/adotarPet", (req, res) => {
-  res.redirect("/adotarPet.html");
+app.get("/adocao-pet", (req, res) => {
+  res.redirect("/adocao-pet.html");
 });
 
 //pagina cadastro interessados
-app.get("/cadastroInteressado", (req, res) => {
-  res.redirect("/cadastroInteressado.html");
+app.get("/cadastro-interessado", (req, res) => {
+  res.redirect("/cadastro-interessado.html");
 });
 
 let interessados = [];

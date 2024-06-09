@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,15 +19,15 @@
             <a class="nav-link" href="/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/cadastroInteressado"
+            <a class="nav-link" href="/cadastro-interessado"
               >Cadastrar Interessado</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/cadastroPet">Cadastrar Pet</a>
+            <a class="nav-link" href="/cadastro-pet">Cadastrar Pet</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/adotarPet">Adotar Pet</a>
+            <a class="nav-link" href="/adocao-pet">Adotar Pet</a>
           </li>
         </ul>
       </div>
@@ -35,19 +35,19 @@
     </nav>
 
     <div class="py-2 px-5">
-      <h3>Declarar interesse:</h3>
+      <h3>Cadastrar novo pet:</h3>
       <form>
         <div class="mb-3">
-          <label for="interessado-select" class="form-label">Interessado</label>
-          <select class="form-select" id="interessado-select">
-            <option value="0">Selecione um interessado</option>
-          </select>
+          <label for="name-input" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="name-input" />
         </div>
         <div class="mb-3">
-          <label for="pet-select" class="form-label">Pet</label>
-          <select class="form-select" id="pet-select">
-            <option value="0">Selecione um pet</option>
-          </select>
+          <label for="race-input" class="form-label">Raça</label>
+          <input type="text" class="form-control" id="race-input" />
+        </div>
+        <div class="mb-3">
+          <label for="age-input" class="form-label">Idade</label>
+          <input type="number" min="0" class="form-control" id="age-input" />
         </div>
         <div
           id="error-message"
@@ -65,21 +65,21 @@
     </div>
 
     <div class="py-2 px-5">
-      <h3>Interesses declarados:</h3>
+      <h3>Pets cadastrados:</h3>
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Nome Interessado</th>
-              <th scope="col">Nome Pet</th>
-              <th scope="col">Data de declaração de interesse</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Raça</th>
+              <th scope="col">Idade</th>
             </tr>
           </thead>
           <tbody id="table-content"></tbody>
         </table>
       </div>
     </div>
-    <script src="./adotarPet.js"></script>
+    <script src="./cadastroPet.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
