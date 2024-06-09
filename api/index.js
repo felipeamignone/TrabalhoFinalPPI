@@ -51,7 +51,7 @@ app.post("/login", (req, res) => {
   if (user === "admin" && senha === "senha123") {
     req.session.usuarioAutenticado = true;
     res.cookie("usuarioLogado", user, { maxAge: 1000 * 60 * 30 });
-    res.cookie("dataUltimoAcesso", new Date().toLocaleString('pt-BR'), {
+    res.cookie("dataUltimoAcesso", new Date().toLocaleString("pt-BR"), {
       maxAge: 1000 * 60 * 60 * 24 * 30, //1 mês de expiração
     });
     res.send({ ok: true, message: "Usuário logado com sucesso!" });
@@ -84,6 +84,16 @@ app.use(
 //pagina home
 app.get("/home", (req, res) => {
   res.redirect("/home.html");
+});
+
+//pagina cadastro pets
+app.get("/cadastroPet", (req, res) => {
+  res.redirect("/cadastroPet.html");
+});
+
+//pagina adocao de pet
+app.get("/adotarPet", (req, res) => {
+  res.redirect("/adotarPet.html");
 });
 
 //pagina cadastro interessados
@@ -121,11 +131,6 @@ app.post("/cadastrar-interessado", (req, res) => {
   res.send({ ok: true, message: "Interessado cadastrado com sucesso!" });
 });
 
-//pagina cadastro pets
-app.get("/cadastroPet", (req, res) => {
-  res.redirect("/cadastroPet.html");
-});
-
 let pets = [];
 //lista de pets
 app.get("/listar-pets", (req, res) => {
@@ -154,11 +159,6 @@ app.post("/cadastrar-pet", (req, res) => {
   pets.push({ name, race, age });
 
   res.send({ ok: true, message: "Pet cadastrado com sucesso!" });
-});
-
-//pagina adocao de pet
-app.get("/adotarPet", (req, res) => {
-  res.redirect("/adotarPet.html");
 });
 
 let adocoes = [];
