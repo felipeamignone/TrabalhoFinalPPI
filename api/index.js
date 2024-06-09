@@ -87,28 +87,28 @@ app.get("/home", (req, res) => {
 });
 
 //pagina cadastro pets
-app.get("/cadastro-pet", (req, res) => {
+app.get("/pets", (req, res) => {
   res.redirect("/cadastro-pet.html");
 });
 
 //pagina adocao de pet
-app.get("/adocao-pet", (req, res) => {
+app.get("/adocoes", (req, res) => {
   res.redirect("/adocao-pet.html");
 });
 
 //pagina cadastro interessados
-app.get("/cadastro-interessado", (req, res) => {
+app.get("/interessados", (req, res) => {
   res.redirect("/cadastro-interessado.html");
 });
 
 let interessados = [];
 //lista de interessados
-app.get("/listar-interessados", (req, res) => {
+app.get("/interessados/listar", (req, res) => {
   res.send({ ok: true, data: interessados });
 });
 
 //cadastro interessado
-app.post("/cadastrar-interessado", (req, res) => {
+app.post("/interessados/cadastrar", (req, res) => {
   let { name, email, phone } = req.body;
 
   let camposComErro = [];
@@ -133,12 +133,12 @@ app.post("/cadastrar-interessado", (req, res) => {
 
 let pets = [];
 //lista de pets
-app.get("/listar-pets", (req, res) => {
+app.get("/pets/listar", (req, res) => {
   res.send({ ok: true, data: pets });
 });
 
 //cadastro pet
-app.post("/cadastrar-pet", (req, res) => {
+app.post("/pets/cadastrar", (req, res) => {
   let { name, race, age } = req.body;
 
   let camposComErro = [];
@@ -163,12 +163,12 @@ app.post("/cadastrar-pet", (req, res) => {
 
 let adocoes = [];
 //lista de adocoes
-app.get("/listar-adocoes", (req, res) => {
+app.get("/adocoes/listar", (req, res) => {
   res.send({ ok: true, data: adocoes });
 });
 
 //cadastro adocao
-app.post("/cadastrar-adocao", (req, res) => {
+app.post("/adocoes/cadastrar", (req, res) => {
   let { interessado, pet } = req.body;
 
   let camposComErro = [];

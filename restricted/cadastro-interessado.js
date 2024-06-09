@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function fetchTable() {
-    fetch("/listar-interessados", { method: "get" })
+    fetch("/interessados/listar", { method: "get" })
       .then((r) => r.json())
       .then((r) => {
         let linhasTabela = "";
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const payload = { name, email, phone };
 
-    fetch("/cadastrar-interessado", {
+    fetch("/interessados/cadastrar", {
       method: "post",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload),

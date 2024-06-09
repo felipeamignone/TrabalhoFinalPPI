@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $("#error-message").css("display", "none");
   });
 
-  fetch("/listar-pets", {
+  fetch("/pets/listar", {
     method: "get",
     headers: { "content-type": "application/json" },
   })
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#pet-select").append(opcoesSelect);
     });
 
-  fetch("/listar-interessados", {
+  fetch("/interessados/listar", {
     method: "get",
     headers: { "content-type": "application/json" },
   })
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   function fetchTable() {
-    fetch("/listar-adocoes", {
+    fetch("/adocoes/listar", {
       method: "get",
       headers: { "content-type": "application/json" },
     })
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const payload = { interessado, pet };
 
-    fetch("/cadastrar-adocao", {
+    fetch("/adocoes/cadastrar", {
       method: "post",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload),
