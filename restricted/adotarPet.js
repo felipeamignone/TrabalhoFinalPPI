@@ -12,7 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
     $("#error-message").css("display", "none");
   });
 
-  fetch("/listar-pets", { method: "get" })
+  fetch("/listar-pets", {
+    method: "get",
+    headers: { "content-type": "application/json" },
+  })
     .then((r) => r.json())
     .then((r) => {
       let opcoesSelect = "";
@@ -26,7 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#pet-select").append(opcoesSelect);
     });
 
-  fetch("/listar-interessados", { method: "get" })
+  fetch("/listar-interessados", {
+    method: "get",
+    headers: { "content-type": "application/json" },
+  })
     .then((r) => r.json())
     .then((r) => {
       let opcoesSelect = "";
@@ -41,7 +47,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   function fetchTable() {
-    fetch("/listar-adocoes", { method: "get" })
+    fetch("/listar-adocoes", {
+      method: "get",
+      headers: { "content-type": "application/json" },
+    })
       .then((r) => r.json())
       .then((r) => {
         let linhasTabela = "";
