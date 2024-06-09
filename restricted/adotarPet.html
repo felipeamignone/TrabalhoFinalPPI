@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ONG Adote um amiguinho</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light px-4">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cadastroInteressado"
+              >Cadastrar Interessado</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cadastroPet">Cadastrar Pet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/adotarPet">Adotar Pet</a>
+          </li>
+        </ul>
+      </div>
+      <div id="user-info"></div>
+    </nav>
+
+    <div class="py-2 px-5">
+      <h3>Declarar interesse:</h3>
+      <form>
+        <div class="mb-3">
+          <label for="interessado-select" class="form-label">Interessado</label>
+          <select class="form-select" id="interessado-select">
+            <option value="0">Selecione um interessado</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="pet-select" class="form-label">Pet</label>
+          <select class="form-select" id="pet-select">
+            <option value="0">Selecione um pet</option>
+          </select>
+        </div>
+        <div
+          id="error-message"
+          class="justify-content-center m-1"
+          style="color: red"
+        ></div>
+        <button
+          type="button"
+          id="register-button"
+          class="btn btn-primary w-100"
+        >
+          Cadastrar
+        </button>
+      </form>
+    </div>
+
+    <div class="py-2 px-5">
+      <h3>Interesses declarados:</h3>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Nome Interessado</th>
+              <th scope="col">Nome Pet</th>
+              <th scope="col">Data de declaração de interesse</th>
+            </tr>
+          </thead>
+          <tbody id="table-content"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="./adotarPet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
