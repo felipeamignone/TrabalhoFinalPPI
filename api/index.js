@@ -51,7 +51,7 @@ app.post("/login", (req, res) => {
   if (user === "admin" && senha === "senha123") {
     req.session.usuarioAutenticado = true;
     res.cookie("usuarioLogado", user, { maxAge: 1000 * 60 * 30 });
-    res.cookie("dataUltimoAcesso", new Date().toLocaleString(), {
+    res.cookie("dataUltimoAcesso", new Date().toLocaleString('pt-BR'), {
       maxAge: 1000 * 60 * 60 * 24 * 30, //1 mês de expiração
     });
     res.send({ ok: true, message: "Usuário logado com sucesso!" });
