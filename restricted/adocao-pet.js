@@ -12,40 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     $("#error-message").css("display", "none");
   });
 
-  fetch("/pets/listar", {
-    method: "get",
-    headers: { "content-type": "application/json" },
-  })
-    .then((r) => r.json())
-    .then((r) => {
-      let opcoesSelect = "";
-
-      if (r.data?.length) {
-        r.data.forEach((pet) => {
-          opcoesSelect += `<option value="${pet.name}">${pet.name}</option> `;
-        });
-      }
-
-      $("#pet-select").append(opcoesSelect);
-    });
-
-  fetch("/interessados/listar", {
-    method: "get",
-    headers: { "content-type": "application/json" },
-  })
-    .then((r) => r.json())
-    .then((r) => {
-      let opcoesSelect = "";
-
-      if (r.data?.length) {
-        r.data.forEach((interessado) => {
-          opcoesSelect += `<option value="${interessado.name}">${interessado.name}</option> `;
-        });
-      }
-
-      $("#interessado-select").append(opcoesSelect);
-    });
-
   function fetchTable() {
     fetch("/adocoes/listar", {
       method: "get",
@@ -75,7 +41,70 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  fetchTable();
+  async function initialFetch() {
+    await fetch("/pets/listar", {
+      method: "get",
+      headers: { "content-type": "application/json" },
+    })
+      .then((r) => r.json())
+      .then((r) => {
+        let opcoesSelect = "";
+
+        if (r.data?.length) {
+          r.data.forEach((pet) => {
+            opcoesSelect += `<option value="${pet.name}">${pet.name}</option> `;
+          });
+        }
+
+        $("#pet-select").append(opcoesSelect);
+      });
+
+    await fetch("/interessados/listar", {
+      method: "get",
+      headers: { "content-type": "application/json" },
+    })
+      .then((r) => r.json())
+      .then((r) => {
+        let opcoesSelect = "";
+
+        if (r.data?.length) {
+          r.data.forEach((interessado) => {
+            opcoesSelect += `<option value="${interessado.name}">${interessado.name}</option> `;
+          });
+        }
+
+        $("#interessado-select").append(opcoesSelect);
+      });
+
+    await fetch("/adocoes/listar", {
+      method: "get",
+      headers: { "content-type": "application/json" },
+    })
+      .then((r) => r.json())
+      .then((r) => {
+        let linhasTabela = "";
+
+        if (r.data.length) {
+          r.data.forEach((adocao) => {
+            linhasTabela += `
+                    <tr>
+                        <td>${adocao.interessado}</td>
+                        <td>${adocao.pet}</td>
+                        <td>${adocao.data}</td>
+                    </tr>
+                    `;
+          });
+        } else {
+          linhasTabela +=
+            '<tr><td colspan="3" class="text-center">Nenhum interesse em adoção cadastrado!</td></tr>';
+        }
+
+        $("#table-content").children().remove();
+        $("#table-content").append(linhasTabela);
+      });
+  }
+
+  initialFetch();
 
   $("#register-button").on("click", function () {
     let interessado = $("#interessado-select").val();
