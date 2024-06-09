@@ -104,6 +104,7 @@ app.get("/cadastroInteressado", (req, res) => {
 let interessados = [];
 //lista de interessados
 app.get("/listar-interessados", (req, res) => {
+  res.header("Content-Type", "application/json");
   res.send({ ok: true, data: interessados });
 });
 
@@ -134,6 +135,7 @@ app.post("/cadastrar-interessado", (req, res) => {
 let pets = [];
 //lista de pets
 app.get("/listar-pets", (req, res) => {
+  res.header("Content-Type", "application/json");
   res.send({ ok: true, data: pets });
 });
 
@@ -164,6 +166,7 @@ app.post("/cadastrar-pet", (req, res) => {
 let adocoes = [];
 //lista de adocoes
 app.get("/listar-adocoes", (req, res) => {
+  res.header("Content-Type", "application/json");
   res.send({ ok: true, data: adocoes });
 });
 
