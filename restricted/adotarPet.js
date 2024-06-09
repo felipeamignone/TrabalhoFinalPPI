@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((r) => {
       let opcoesSelect = "";
 
-      if (r.data.length) {
+      if (r.data?.length) {
         r.data.forEach((pet) => {
           opcoesSelect += `<option value="${pet.name}">${pet.name}</option> `;
         });
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((r) => {
       let opcoesSelect = "";
 
-      if (r.data.length) {
+      if (r.data?.length) {
         r.data.forEach((interessado) => {
           opcoesSelect += `<option value="${interessado.name}">${interessado.name}</option> `;
         });
